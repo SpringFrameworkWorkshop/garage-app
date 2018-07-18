@@ -2,8 +2,16 @@ package io.spring.garage;
 
 import io.spring.commandlinemenu.Menu;
 import io.spring.commandlinemenu.MenuBuilder;
+import io.spring.garage.entities.vehicle.Bicycle;
+import io.spring.garage.entities.vehicle.Car;
+import io.spring.garage.entities.vehicle.MotorBike;
+import io.spring.garage.manager.vehicle.BicycleManager;
+import io.spring.garage.manager.vehicle.CarManager;
+import io.spring.garage.manager.vehicle.MotorBikeManager;
 
 import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 
 public class GarageRunner {
@@ -51,6 +59,8 @@ public class GarageRunner {
 
         System.out.println("GOOD BYE");
 
+        exit(0);
+
     }
 
     private static Menu generateMenu() {
@@ -82,33 +92,66 @@ public class GarageRunner {
     }
 
     private static Car selectCar() {
-        //TODO:
-        return null;
+        System.out.println(CarManager.getInstance().findAll());
+        System.out.println("Select an element of the list");
+        int element = in.nextInt();
+        return CarManager.getInstance().get(element);
     }
 
     private static MotorBike selectMotorBike() {
-        //TODO:
-        return null;
+        System.out.println(MotorBikeManager.getInstance().findAll());
+        System.out.println("Select an element of the list");
+        int element = in.nextInt();
+        return MotorBikeManager.getInstance().get(element);
     }
 
     private static Bicycle selectBicycle() {
-        //TODO:
-        return null;
+        System.out.println(BicycleManager.getInstance().findAll());
+        System.out.println("Select an element of the list");
+        int element = in.nextInt();
+        return BicycleManager.getInstance().get(element);
     }
 
     private static Car carBuilder() {
-        //TODO:
-        return null;
+        System.out.println("Set the plate value");
+        String plate = in.nextLine();
+        System.out.println("Set the color value");
+        String color = in.nextLine();
+        System.out.println("Set the  model value");
+        String model = in.nextLine();
+
+        final Car car = new Car();
+        car.setPlate(plate);
+        car.setColor(color);
+        car.setModel(model);
+        return car;
     }
 
     private static MotorBike motorBikeBuilder() {
-        //TODO:
-        return null;
+        System.out.println("Set the plate value");
+        String plate = in.nextLine();
+        System.out.println("Set the color value");
+        String color = in.nextLine();
+        System.out.println("Set the model value");
+        String model = in.nextLine();
+
+        final MotorBike motorBike = new MotorBike();
+        motorBike.setPlate(plate);
+        motorBike.setColor(color);
+        motorBike.setModel(model);
+        return motorBike;
     }
 
     private static Bicycle bicycleBuilder() {
-        //TODO:
-        return null;
+        System.out.println("Set the color value");
+        String color = in.nextLine();
+        System.out.println("Set the model value");
+        String model = in.nextLine();
+
+        final Bicycle bicycle = new Bicycle();
+        bicycle.setColor(color);
+        bicycle.setModel(model);
+        return bicycle;
     }
 
 }
