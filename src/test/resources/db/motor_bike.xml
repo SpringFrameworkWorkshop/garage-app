@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <vehicle id="1" color="red" model="honda" num_wheels="2" type="MOTORBIKE" />
+    <vehicle id="2" color="black" model="yamaha" num_wheels="2" type="MOTORBIKE" />
+    <motor_bike id="1" plate="KCS-99999"/>
+    <motor_bike id="2" plate="ABA-77777"/>
+</dataset>
