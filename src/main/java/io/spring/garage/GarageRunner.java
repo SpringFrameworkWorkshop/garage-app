@@ -5,6 +5,8 @@ import io.spring.commandlinemenu.MenuBuilder;
 
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 
 public class GarageRunner {
 
@@ -50,6 +52,8 @@ public class GarageRunner {
         } while (option != null);
 
         System.out.println("GOOD BYE");
+
+        exit(0);
 
     }
 
