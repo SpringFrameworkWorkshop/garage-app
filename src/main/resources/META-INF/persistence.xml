@@ -23,8 +23,8 @@
             <!-- The database password -->
             <property name="javax.persistence.jdbc.password" value="pablo-1" />
 
-            <!-- The database creation -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <!-- The database creation strategy -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>
