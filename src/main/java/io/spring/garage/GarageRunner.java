@@ -26,6 +26,9 @@ public class GarageRunner {
             option = generateMenu().play();
             if (option != null) {
                 switch (option) {
+                    case "1.0":
+                        System.out.println(CarManager.getInstance().getDao().findAllByColor(selectColor()));
+                        break;
                     case "1.1":
                         System.out.println(CarManager.getInstance().findAll());
                         break;
@@ -65,6 +68,7 @@ public class GarageRunner {
 
     private static Menu generateMenu() {
         io.spring.commandlinemenu.Menu submenu1 = MenuBuilder.createSubMenu("CARS", 1)
+                .addSimpleOption(0, "Filter by color")
                 .addSimpleOption(1, "List")
                 .addSimpleOption(2, "New")
                 .addSimpleOption(3, "Delete")
@@ -89,6 +93,11 @@ public class GarageRunner {
                 .addSubMenuOption("Bicycle", submenu3)
                 .addExitOption(4, "Exit")
                 .build();
+    }
+
+    private static String selectColor() {
+        System.out.println("Introduce a color");
+        return in.nextLine();
     }
 
     private static Car selectCar() {
