@@ -21,7 +21,7 @@ public class GarageRunner {
             if (option != null) {
                 switch (option) {
                     case "1.0":
-                        System.out.println(CarManager.getInstance().getDao().findAllByColor(selectColor()));
+                        System.out.println(CarManager.getInstance().findAllByColor(selectColor()));
                         break;
                     case "1.1":
                         System.out.println(CarManager.getInstance().findAll());
