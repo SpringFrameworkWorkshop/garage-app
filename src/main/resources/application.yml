@@ -5,6 +5,10 @@ spring:
     password: a
     driver-class-name: org.h2.Driver
 
+  data:
+    rest:
+      basePath: /
+
 ---
 spring:
   profiles: prod

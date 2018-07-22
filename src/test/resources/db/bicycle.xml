@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-    <vehicle id="1" color="red" model="canyon" num_wheels="2" type="BICYCLE" />
-    <vehicle id="2" color="black" model="cube" num_wheels="2" type="BICYCLE" />
-    <bicycle id="1" />
-    <bicycle id="2" />
-</dataset>
