@@ -1,6 +1,5 @@
 package io.spring.garage.entities.vehicle;
 
-import com.sun.istack.internal.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,6 @@ public class Vehicle implements VehicleEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
 	@Enumerated(EnumType.STRING)
 	private VehicleType type;
 
