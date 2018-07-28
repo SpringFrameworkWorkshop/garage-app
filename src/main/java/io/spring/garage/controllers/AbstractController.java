@@ -26,14 +26,22 @@ public abstract class AbstractController<E extends GarageEntity, DTO extends Gar
 
     protected abstract AbstractManager<E> getManager();
 
+    protected Class<? extends DTO> getDtoClass(E e) {
+        return dtoClass;
+    }
+
+    protected Class<? extends E> getEntityClass(DTO dto) {
+        return eClass;
+    }
+
     protected DTO convertToDTO(final E e) {
         if (e == null) return null;
-        return modelMapper.map(e, dtoClass);
+        return modelMapper.map(e, this.getDtoClass(e));
     }
 
     protected E convertToEntity(final DTO dto) {
         if (dto == null) return null;
-        return modelMapper.map(dto,eClass);
+        return modelMapper.map(dto, this.getEntityClass(dto));
     }
 
     protected AbstractController(final Class<E> eClass, final Class<DTO> dtoClass) {
