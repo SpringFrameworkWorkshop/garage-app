@@ -2,6 +2,7 @@ package io.spring.garage.repositories;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import io.spring.garage.common.CarFilter;
 import io.spring.garage.entities.vehicle.Car;
 import io.spring.garage.entities.vehicle.VehicleType;
 import io.spring.garage.specifications.CarSpecification;
@@ -81,15 +82,8 @@ public class CarRepositoryTest {
     @DatabaseSetup("/db/car.xml")
     public void testFindAll_specColor() {
         // Arrange
-        final String color = "black";
-        final String model = null;
-        final Specification<Car> spec = where((Specification<Car>) null)
-                // filter by color
-                .and((color == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasColor(color)))
-                // filter by model
-                .and((model == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasModel(model)));
+        final CarFilter carFilter = new CarFilter("black", null);
+        final Specification<Car> spec = this.buildSpecifications(carFilter);
 
         // Act
         List<Car> all = this.repository.findAll(spec);
@@ -102,15 +96,8 @@ public class CarRepositoryTest {
     @DatabaseSetup("/db/car.xml")
     public void testFindAll_specModel() {
         // Arrange
-        final String color = null;
-        final String model = "seat";
-        final Specification<Car> spec = where((Specification<Car>) null)
-                // filter by color
-                .and((color == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasColor(color)))
-                // filter by model
-                .and((model == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasModel(model)));
+        final CarFilter carFilter = new CarFilter(null, "seat");
+        final Specification<Car> spec = this.buildSpecifications(carFilter);
 
         // Act
         List<Car> all = this.repository.findAll(spec);
@@ -123,21 +110,24 @@ public class CarRepositoryTest {
     @DatabaseSetup("/db/car.xml")
     public void testFindAll_specAll() {
         // Arrange
-        final String color = "black";
-        final String model = "seat";
-        final Specification<Car> spec = where((Specification<Car>) null)
-                // filter by color
-                .and((color == null)? null : Specification.where((Specification<Car>) null)
-                .and(CarSpecification.hasColor(color)))
-                // filter by model
-                .and((model == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasModel(model)));
+        final CarFilter carFilter = new CarFilter("black", "seat");
+        final Specification<Car> spec = this.buildSpecifications(carFilter);
 
         // Act
         List<Car> all = this.repository.findAll(spec);
 
         // Assert
         Assert.assertEquals(3, all.size());
+    }
+
+    private Specification<Car> buildSpecifications(final CarFilter carFilter) {
+        return where((Specification<Car>) null)
+                // filter by color
+                .and((carFilter.getColor() == null)? null : Specification.where((Specification<Car>) null)
+                        .and(CarSpecification.hasColor(carFilter.getColor())))
+                // filter by model
+                .and((carFilter.getModel() == null)? null : Specification.where((Specification<Car>) null)
+                        .and(CarSpecification.hasModel(carFilter.getModel())));
     }
 
 }

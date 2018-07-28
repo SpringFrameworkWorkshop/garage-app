@@ -2,6 +2,7 @@ package io.spring.garage.manager;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import io.spring.garage.common.CarFilter;
 import io.spring.garage.entities.vehicle.Car;
 import io.spring.garage.entities.vehicle.VehicleType;
 import org.junit.Assert;
@@ -71,6 +72,45 @@ public class CarManagerTest {
         // Assert
         List<Car> all = this.manager.findAll();
         Assert.assertEquals(4, all.size());
+    }
+
+    @Test
+    @DatabaseSetup("/db/car.xml")
+    public void testFindAll_specColor() {
+        // Arrange
+        final CarFilter carFilter = new CarFilter("black", null);
+
+        // Act
+        List<Car> all = this.manager.findAll(carFilter);
+
+        // Assert
+        Assert.assertEquals(3, all.size());
+    }
+
+    @Test
+    @DatabaseSetup("/db/car.xml")
+    public void testFindAll_specModel() {
+        // Arrange
+        final CarFilter carFilter = new CarFilter(null, "seat");
+
+        // Act
+        List<Car> all = this.manager.findAll(carFilter);
+
+        // Assert
+        Assert.assertEquals(4, all.size());
+    }
+
+    @Test
+    @DatabaseSetup("/db/car.xml")
+    public void testFindAll_specAll() {
+        // Arrange
+        final CarFilter carFilter = new CarFilter("black", "seat");
+
+        // Act
+        List<Car> all = this.manager.findAll(carFilter);
+
+        // Assert
+        Assert.assertEquals(3, all.size());
     }
 
 }
