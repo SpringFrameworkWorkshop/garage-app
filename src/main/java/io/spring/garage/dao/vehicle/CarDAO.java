@@ -1,5 +1,6 @@
 package io.spring.garage.dao.vehicle;
 
+import io.spring.garage.dao.AbstractDAO;
 import io.spring.garage.entities.vehicle.Car;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class CarDAO extends AbstractVehicleDAO<Car> {
+public class CarDAO extends AbstractDAO<Car> {
 
     private static CarDAO instance;
 

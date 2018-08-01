@@ -2,8 +2,9 @@ package io.spring.garage.manager.vehicle;
 
 import io.spring.garage.dao.vehicle.MotorBikeDAO;
 import io.spring.garage.entities.vehicle.MotorBike;
+import io.spring.garage.manager.AbstractManager;
 
-public class MotorBikeManager extends AbstractVehicleManager<MotorBike> {
+public class MotorBikeManager extends AbstractManager<MotorBike> {
 	
 	private static MotorBikeManager instance;
 

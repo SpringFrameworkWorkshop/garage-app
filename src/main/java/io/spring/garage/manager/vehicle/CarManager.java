@@ -2,10 +2,11 @@ package io.spring.garage.manager.vehicle;
 
 import io.spring.garage.dao.vehicle.CarDAO;
 import io.spring.garage.entities.vehicle.Car;
+import io.spring.garage.manager.AbstractManager;
 
 import java.util.List;
 
-public class CarManager extends AbstractVehicleManager<Car> {
+public class CarManager extends AbstractManager<Car> {
 
 	private static CarManager instance;
 

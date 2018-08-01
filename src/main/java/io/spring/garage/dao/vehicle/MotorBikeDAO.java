@@ -1,8 +1,9 @@
 package io.spring.garage.dao.vehicle;
 
+import io.spring.garage.dao.AbstractDAO;
 import io.spring.garage.entities.vehicle.MotorBike;
 
-public class MotorBikeDAO extends AbstractVehicleDAO<MotorBike> {
+public class MotorBikeDAO extends AbstractDAO<MotorBike> {
 	
 	private static MotorBikeDAO instance;
 
