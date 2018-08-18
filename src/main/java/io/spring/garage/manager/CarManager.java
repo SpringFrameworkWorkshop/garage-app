@@ -31,11 +31,9 @@ public class CarManager extends AbstractManager<Car> {
 
         final Specification<Car> spec = where((Specification<Car>) null)
                 // filter by color
-                .and((filter.getColor() == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasColor(filter.getColor())))
+                .and((filter.getColor() == null)? null : CarSpecification.hasColor(filter.getColor()))
                 // filter by model
-                .and((filter.getModel() == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasModel(filter.getModel())));
+                .and((filter.getModel() == null)? null : CarSpecification.hasModel(filter.getModel()));
 
         return getRepository().findAll(spec);
 
