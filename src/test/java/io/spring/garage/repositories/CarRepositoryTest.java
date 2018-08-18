@@ -123,11 +123,9 @@ public class CarRepositoryTest {
     private Specification<Car> buildSpecifications(final CarFilter carFilter) {
         return where((Specification<Car>) null)
                 // filter by color
-                .and((carFilter.getColor() == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasColor(carFilter.getColor())))
+                .and((carFilter.getColor() == null)? null : CarSpecification.hasColor(carFilter.getColor()))
                 // filter by model
-                .and((carFilter.getModel() == null)? null : Specification.where((Specification<Car>) null)
-                        .and(CarSpecification.hasModel(carFilter.getModel())));
+                .and((carFilter.getModel() == null)? null : CarSpecification.hasModel(carFilter.getModel()));
     }
 
 }
