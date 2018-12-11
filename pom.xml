@@ -38,13 +38,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.3.Final</version>
+            <version>5.3.7.Final</version>
         </dependency>
         <!-- Entity manager which is required for JPA -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.2.3.Final</version>
+            <version>5.3.7.Final</version>
         </dependency>
         <!-- JDBC Connector for MySQL -->
         <dependency>
@@ -53,6 +53,13 @@
             <version>5.1.46</version>
             <!--<version>8.0.11</version>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+        </dependency>
+
     </dependencies>
 
     <build>

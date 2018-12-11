@@ -13,15 +13,20 @@
         <class>io.spring.garage.entities.vehicle.MotorBike</class>
 
         <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:h2:mem:garage;MODE=MySQL" />
+            <property name="hibernate.connection.user" value="sa" />
+
             <!-- The JDBC URL to the database instance -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/garage?useSSL=false" />
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/garage?useSSL=false" />-->
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/garage?useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />-->
 
             <!-- The database username -->
-            <property name="javax.persistence.jdbc.user" value="root" />
+            <!--<property name="javax.persistence.jdbc.user" value="root" />-->
 
             <!-- The database password -->
-            <property name="javax.persistence.jdbc.password" value="pablo-1" />
+            <!--<property name="javax.persistence.jdbc.password" value="pablo-1" />-->
 
             <!-- The database creation strategy -->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
